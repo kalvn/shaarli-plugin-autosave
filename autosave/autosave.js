@@ -138,8 +138,6 @@
                 }
             }
         }
-
-        document.getElementsByName(formName)[0].dispatchEvent(eventOnLoad);
     }
 
     /**
