@@ -1,2 +1,2 @@
 description="Automatically saves data when editing a link to avoid any loss in case of crash or unexpected shutdown."
-parameters="AUTOSAVE_INTERVAL;AUTOSAVE_LIFETIME;AUTOSAVE_FORMNAME;AUTOSAVE_KEYNAME"
+parameters="AUTOSAVE_INTERVAL;AUTOSAVE_LIFETIME"

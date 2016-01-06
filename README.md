@@ -33,10 +33,6 @@ $GLOBALS['plugins']['<PARAMETER_NAME>'] = PARAMETER_VALUE;
 
 `AUTOSAVE_LIFETIME` [default: 18000] lifetime of saved data, in seconds. After this time, data is automatically erased to avoid taking too much space with outdated data.
 
-`AUTOSAVE_FORMNAME` [default: 'linkform'] the name attribute of the form tag as defined in the theme you use. You probably won't have to change this but in case you use a very custom theme, you may have to touch this.
-
-`AUTOSAVE_KEYNAME` [default: 'lf_url'] the name of the form input field for the URL which is used as a unique key to define to which link is saved data related. You shouldn't have to change this either.
-
 
 ## Important notice
 Please keep in mind that the save is purely local. It uses the local storage of your browser, nothing is saved on the server.

@@ -1,9 +1,9 @@
 (function(){
 
     var interval = window.autosaveInterval || 30;
-    var formName = window.autosaveFormname || 'linkform';
-    var keyName = window.autosaveKeyname || 'lf_url';
     var lifetime = window.autosaveLifetime || 18000; // 1000 * 3600 * 5 = 5h.
+    var formName = 'linkform';
+    var keyName = 'lf_url';
     var keyPrefix = 'autosave_';
 
     /**
@@ -33,6 +33,11 @@
         setInterval(function(){
             save();
         }, interval);
+
+        // Listen to the submit event to save one last time before submitting the form to the server.
+        document.querySelector('[name=' + formName + ']').addEventListener('submit', function(){
+            save();
+        });
     }
 
     /**
