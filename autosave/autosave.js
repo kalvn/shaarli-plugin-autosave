@@ -25,7 +25,7 @@
             var data = getSavedData();
             var date = new Date(data._autosaveTime);
             var dateStr = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
-            if(confirm('An existing draft from ' + dateStr + ' has been found for this link. Do you want to load it? Otherwise, this draft will be complitely erased.')){
+            if(isSavedDataAndFormDataDifferent() && confirm('An existing draft from ' + dateStr + ' has been found for this link. Do you want to load it? Otherwise, this draft will be complitely erased.')){
                 load();
             }
         }
@@ -57,7 +57,7 @@
         for(var i in fields){
             var name = fields[i].name;
             // Excludes useless fields.
-            if(['save_edit', 'cancel_edit', 'delete_link', 'token'].indexOf(name) < 0){
+            if(['save_edit', 'cancel_edit', 'delete_link', 'token', 'returnurl'].indexOf(name) < 0){
                 if(typeof name === 'string' && name.length > 0){
                     if(fields[i].type === 'checkbox'){
                         result[name] = fields[i].checked;
@@ -87,6 +87,19 @@
      */
     function hasSavedData(){
         return localStorage.hasOwnProperty(getKey());
+    }
+
+    /**
+     * Check whether saved data and form data are different to avoid unnecessary popup.
+     */
+    function isSavedDataAndFormDataDifferent(){
+        var savedData = getSavedData();
+        var formData = getFormData();
+
+        delete(savedData._autosaveTime);
+        delete(formData.item);
+
+        return JSON.stringify(savedData) !== JSON.stringify(formData);
     }
 
     /**

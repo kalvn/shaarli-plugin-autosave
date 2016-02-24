@@ -18,7 +18,7 @@ function hook_autosave_render_footer($data)
         }
 
         $data['endofpage'][] = '<script type="text/javascript">' . $js . '</script>';
-        $data['js_files'][] = PluginManager::$PLUGINS_PATH . '/autosave/autosave.js';
+        $data['js_files'][] = PluginManager::$PLUGINS_PATH . '/autosave/autosave.min.js';
     }
 
     return $data;
