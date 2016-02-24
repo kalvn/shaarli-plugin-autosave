@@ -43,4 +43,3 @@ This behavior may evolve in the future if Shaarli provide an API or something to
 
 ## TODO
 - Adding events to enable theme developer to display information and controls for the plugin.
-- Finding a workaround for when you save a link, edit it again and get the popup which make no sense in such case. Deleting local data when saving is not an option because I have no way to know the data has been saved properly, on the editlink page.
