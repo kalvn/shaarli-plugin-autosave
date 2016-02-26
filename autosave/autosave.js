@@ -69,6 +69,10 @@
                         result[name] = fields[i].value;
                     }
                 }
+
+                if(result[name]){
+                    result[name] = result[name].trim();
+                }
             }
         }
 
