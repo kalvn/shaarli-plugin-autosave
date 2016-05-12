@@ -1,24 +1,23 @@
 # Shaarli AutoSave
-
 Shaarli AutoSave is a plugin for the famous [Shaarli application](https://github.com/shaarli/shaarli).
 
 It automatically saves data when editing a link to avoid any loss in case of crash or unexpected shutdown.
+
 
 ## Installation
 ### Via Git
 Run the following command from the `plugins` folder of your Shaarli installation:
 
 ```shell
-git clone https://github.com/kalvn/shaarli-plugin-autosave
+git clone https://github.com/kalvn/shaarli-plugin-autosave autosave
 ```
 
-Then, I advise you to rename the folder `shaarli-plugin-autosave` into `autosave`.
-
-If you don't, in the next steps of this guide, please replace `autosave` by the actual name of the folder.
+It'll create the `autosave` folder.
 
 ### Manually
 Create the folder `plugins/autosave` in your Shaarli installation.
 Download the ZIP file of this repository and copy all files in the newly created folder.
+
 
 ## Activation
 ### Without the plugin administration page
@@ -48,13 +47,14 @@ $GLOBALS['plugins']['<PARAMETER_NAME>'] = PARAMETER_VALUE;
 
 
 ## Update
-I you use Git, run the following command from within this plugin's folder (`plugins/autosave` if you renamed it or `plugins/shaarli-plugin-autosave` otherwise):
+I you installed it through Git, run the following command from within this plugin's folder `plugins/autosave`:
 
 ```shell
 git pull
 ```
 
 Otherwise, download the ZIP file again from Github and override existing files with new ones.
+
 
 ## Important notice
 Please keep in mind that the save is purely local. It uses the local storage of your browser, nothing is saved on the server.
