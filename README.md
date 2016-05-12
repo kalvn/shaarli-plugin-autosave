@@ -4,10 +4,25 @@ Shaarli AutoSave is a plugin for the famous [Shaarli application](https://github
 
 It automatically saves data when editing a link to avoid any loss in case of crash or unexpected shutdown.
 
+## Installation
+### Via Git
+Run the following command from the `plugins` folder of your Shaarli installation:
 
-## Installation without the plugin administration page
-Copy the `autosave` folder in the `plugins` directory of your Shaarli installation.
-Then, edit the `data/config.php` file and add `autosave` in the array `$GLOBALS['config']['ENABLED_PLUGINS']`. It'll look like this (potentially with other plugins):
+```shell
+git clone https://github.com/kalvn/shaarli-plugin-autosave
+```
+
+Then, I advise you to rename the folder `shaarli-plugin-autosave` into `autosave`.
+
+If you don't, in the next steps of this guide, please replace `autosave` by the actual name of the folder.
+
+### Manually
+Create the folder `plugins/autosave` in your Shaarli installation.
+Download the ZIP file of this repository and copy all files in the newly created folder.
+
+## Activation
+### Without the plugin administration page
+Edit the `data/config.php` file and add `autosave` in the array `$GLOBALS['config']['ENABLED_PLUGINS']`. It'll look like this (potentially with other plugins):
 
 ```php
 $GLOBALS['config']['ENABLED_PLUGINS'] = array (
@@ -15,10 +30,8 @@ $GLOBALS['config']['ENABLED_PLUGINS'] = array (
 );
 ```
 
-## Installation with the plugin administration page
-If your Shaarli installation is recent enough to have the plugin administration page, you just have to copy the `autosave` folder in the `plugins` folder.
-
-Then, go to the plugin administration page, check `autosave` and save.
+### With the plugin administration page
+If your Shaarli installation is recent enough to have the plugin administration page, you just need to go to the plugin administration page, check `autosave` and save.
 
 
 ## Configure
@@ -34,11 +47,20 @@ $GLOBALS['plugins']['<PARAMETER_NAME>'] = PARAMETER_VALUE;
 `AUTOSAVE_LIFETIME` [default: 18000] lifetime of saved data, in seconds. After this time, data is automatically erased to avoid taking too much space with outdated data.
 
 
+## Update
+I you use Git, run the following command from within this plugin's folder (`plugins/autosave` if you renamed it or `plugins/shaarli-plugin-autosave` otherwise):
+
+```shell
+git pull
+```
+
+Otherwise, download the ZIP file again from Github and override existing files with new ones.
+
 ## Important notice
 Please keep in mind that the save is purely local. It uses the local storage of your browser, nothing is saved on the server.
 It means that if you open a link previously saved on another browser, you won't have access to saved data.
 It also means that if you clear the local data of your browser, your local content will be lost.
-This behavior may evolve in the future if Shaarli provide an API or something to make it easier.
+This behavior may evolve in the future if Shaarli provides an API to make it easier.
 
 
 ## TODO
