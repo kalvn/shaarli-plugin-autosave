@@ -4,17 +4,25 @@
  * Plugin autosave.
  */
 
-function hook_autosave_render_footer($data)
+function hook_autosave_render_footer($data, $config)
 {
     if($data['_PAGE_'] === 'edit_link'){
 
-        $js = '';
-        if(isset($GLOBALS['plugins']['AUTOSAVE_INTERVAL']) && preg_match('/[0-9]+/', $GLOBALS['plugins']['AUTOSAVE_INTERVAL'])){
-            $js .= 'window.autosaveInterval = ' . $GLOBALS['plugins']['AUTOSAVE_INTERVAL'] . ';';
+        if(isset($config)){
+            $autosaveInterval = $config->get('plugins.AUTOSAVE_INTERVAL');
+            $autosaveLifetime = $config->get('plugins.AUTOSAVE_LIFETIME');
+        } else{
+            $autosaveInterval = isset($GLOBALS['plugins']['AUTOSAVE_INTERVAL']) ? $GLOBALS['plugins']['AUTOSAVE_INTERVAL'] : '';
+            $autosaveLifetime = isset($GLOBALS['plugins']['AUTOSAVE_LIFETIME']) ? $GLOBALS['plugins']['AUTOSAVE_LIFETIME'] : '';
         }
 
-        if(isset($GLOBALS['plugins']['AUTOSAVE_LIFETIME']) && preg_match('/[0-9]+/', $GLOBALS['plugins']['AUTOSAVE_LIFETIME'])){
-            $js .= 'window.autosaveLifetime = ' . $GLOBALS['plugins']['AUTOSAVE_LIFETIME'] . ';';
+        $js = '';
+        if(!empty($autosaveInterval) && preg_match('/[0-9]+/', $autosaveInterval)){
+            $js .= 'window.autosaveInterval = ' . $autosaveInterval . ';';
+        }
+
+        if(!empty($autosaveLifetime) && preg_match('/[0-9]+/', $autosaveLifetime)){
+            $js .= 'window.autosaveLifetime = ' . $autosaveLifetime . ';';
         }
 
         $data['endofpage'][] = '<script type="text/javascript">' . $js . '</script>';
