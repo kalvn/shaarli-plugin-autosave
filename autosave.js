@@ -71,7 +71,7 @@
                 }
 
                 if(result[name]){
-                    result[name] = result[name].trim();
+                    result[name] = result[name];
                 }
             }
         }
