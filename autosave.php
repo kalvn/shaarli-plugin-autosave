@@ -1,5 +1,7 @@
 <?php
 
+use Shaarli\Plugin\PluginManager;
+
 /**
  * Plugin autosave.
  */
