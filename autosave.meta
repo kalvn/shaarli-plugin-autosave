@@ -1,2 +1,4 @@
 description="Automatically saves data when editing a link to avoid any loss in case of crash or unexpected shutdown."
 parameters="AUTOSAVE_INTERVAL;AUTOSAVE_LIFETIME"
+parameter.AUTOSAVE_INTERVAL="The time interval between each automatic save, in seconds. Default: 10 seconds."
+parameter.AUTOSAVE_LIFETIME="How long saves are saved, in second. Default: 18000 seconds (5 hours)."
